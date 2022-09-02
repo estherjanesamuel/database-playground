@@ -1,0 +1,26 @@
+version: '3'
+services:
+    elastic:
+        image: elasticsearch:7.12.0
+        ports:
+            - "9000:9000"
+            - "9200:9200"
+            - "9300:9300"
+        environment: 
+            - "discovery.type=single-node"
+        networks:
+            search-net:
+    kibana:
+        image: docker.elastic.co/kibana/kibana:7.12.1
+        environment:
+            SERVER_NAME: localhost
+            ELASTICSEARCH_HOSTS: "http://elastic:9200"
+        depends_on:
+            - elastic
+        ports:
+            - "5601:5601"
+        networks:
+            search-net:
+
+networks:
+    search-net:
