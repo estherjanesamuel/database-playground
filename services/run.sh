@@ -7,7 +7,7 @@ USAGE="$(basename "$0") CMD | SERVS [SERVS...] -- script for 'services/' usage, 
 USAGE_CMD="CMD: stop"
 USAGE_SERVS="SERVS: es|elastic, nsq, pg|postgre"
 USAGE_EX="Example: $(basename "$0") pg | Start postgre service"
-NETWORK="search-net"
+NETWORK="etsearch-n"
 
 NETWORK_INIT=0
 init_docker_network() {
